@@ -1,27 +1,25 @@
 // AUTHOR: OskarProgrammer
 // LICENSE: MIT LICENSE
-
-#ifndef SHARED_INSTANCES
-#define SHARED_INSTANCES
-
+//implementation
 #include <stdio.h>
 #include <stdlib.h>
 #include "API_shared_instances.h"
 
 
-#define MAX_OBJECTS 4 
+#define MAX_OBJECTS 4
 
 typedef struct OBJECTSLIST{
-    INST *inst;
+    struct INST *inst;
     int count;
 }OBJECTSLIST;
 
 static OBJECTSLIST list[MAX_OBJECTS];   // global list that count the amount of the objects and which are allready allocated so the implementation doesnt have to allocate the same object
 
 // constructor
-INST* createObject(int id){
+struct INST *createObject(int id)
+{
     if (list[id].count == 0 ){
-        list[id].inst = (INST *)malloc(sizeof(INST));
+        list[id].inst = (struct INST *)malloc(sizeof(struct INST));
     }
 
     list[id].count++;
@@ -29,17 +27,17 @@ INST* createObject(int id){
     return list[id].inst;
 }
 
-// methods 
-void operateOnObject(INST *instance){
+// methods
+void operateOnObject(struct INST *instance)
+{
     // some of your code
     // example:
-    instance->x = 2;
-    instance->y = 2;
+    printf("Method");
 }
 
-
 // destructor
-void destroyObject(INST *instance){
+void destroyObject(struct INST *instance)
+{
     int id = getIdOfInstance(instance); //finding the id of the instnace on the list
     if (id < 0){    
         printf("Error during destroying the object: instance not found in the memory list.");
@@ -55,7 +53,8 @@ void destroyObject(INST *instance){
 
 // getting the id of the instance given in the parameter list
 // -1 value => error, because the index in this way of looking for index shouldnt become negative number
-int getIdOfInstance(INST *instance){
+int getIdOfInstance(struct INST *instance)
+{
     for(int index=0; index<MAX_OBJECTS; index++){
         if (list[index].inst == instance){
             return index;
@@ -64,4 +63,3 @@ int getIdOfInstance(INST *instance){
     return (-1);
 }
 
-#endif

@@ -5,20 +5,20 @@
 #define API_NOT_SHARED_INSTANCES
 
 #include <stdio.h>
-
+// API
 // place where you can add or remove private variables for the instances of the class
-typedef struct PRIVATEVARIABLES{
+struct PRIVATEVARIABLES{
     int x;
     int y;
-} INST;
+};
 
 // constructor of the class
-INST* createObject();
+struct PRIVATEVARIABLES* createObject();
 
 //  methods of the class
-void operateOnObject(INST* inst);
+void operateOnObject(struct PRIVATEVARIABLES *inst);
 
 // destructor of the class
-void destroyObject(INST* inst);
+void destroyObject(struct PRIVATEVARIABLES *inst);
 
 #endif
