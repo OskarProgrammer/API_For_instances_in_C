@@ -6,7 +6,7 @@
 #include "API_not_shared_instances.h"
 
 //constructor of the class
-extern struct PRIVATEVARIABLES *createObject()
+struct PRIVATEVARIABLES *createObject()
 {
     struct PRIVATEVARIABLES *inst = (struct PRIVATEVARIABLES *)malloc(sizeof(struct PRIVATEVARIABLES));
 
@@ -14,13 +14,13 @@ extern struct PRIVATEVARIABLES *createObject()
 }
 
 // methods of the class
-extern void operateOnObject(struct PRIVATEVARIABLES *inst)
+void operateOnObject(struct PRIVATEVARIABLES *inst)
 {
     printf("Method");
 }
 
 //destructor of the class
-extern void destroyObject(struct PRIVATEVARIABLES *inst)
+void destroyObject(struct PRIVATEVARIABLES *inst)
 {
     free(inst); // deallocating the memory
     inst = NULL;    // saving the hanging pointer
