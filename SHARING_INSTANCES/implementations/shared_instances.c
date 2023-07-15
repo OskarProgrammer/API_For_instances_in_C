@@ -3,7 +3,7 @@
 //implementation
 #include <stdio.h>
 #include <stdlib.h>
-#include "API_shared_instances.h"
+#include "../headers/API_shared_instances.h"
 
 
 #define MAX_OBJECTS 4
@@ -32,7 +32,21 @@ void operateOnObject(struct INST *instance)
 {
     // some of your code
     // example:
-    printf("Method");
+    printf("Test\n");
+}
+
+// getting the id of the instance given in the parameter list
+// -1 value => error, because the index in this way of looking for index shouldnt become negative number
+int getIdOfInstance(struct INST *instance)
+{
+    for (int index = 0; index < MAX_OBJECTS; index++)
+    {
+        if (list[index].inst == instance)
+        {
+            return index;
+        }
+    }
+    return (-1);
 }
 
 // destructor
@@ -51,15 +65,4 @@ void destroyObject(struct INST *instance)
     }
 }
 
-// getting the id of the instance given in the parameter list
-// -1 value => error, because the index in this way of looking for index shouldnt become negative number
-int getIdOfInstance(struct INST *instance)
-{
-    for(int index=0; index<MAX_OBJECTS; index++){
-        if (list[index].inst == instance){
-            return index;
-        }
-    }
-    return (-1);
-}
 
