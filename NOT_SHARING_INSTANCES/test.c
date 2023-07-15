@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "API_not_shared_instances.h"
 
-int main(void){
+int main(){
 
     struct PRIVATEVARIABLES *inst = createObject();
     operateOnObject(inst);
@@ -10,5 +10,3 @@ int main(void){
 
     return EXIT_SUCCESS;
 }
-
-#include "API_not_shared_instances.h"
