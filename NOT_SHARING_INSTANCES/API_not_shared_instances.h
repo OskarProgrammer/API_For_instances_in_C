@@ -4,7 +4,6 @@
 #ifndef API_NOT_SHARED_INSTANCES
 #define API_NOT_SHARED_INSTANCES
 
-#include <stdio.h>
 // API
 // place where you can add or remove private variables for the instances of the class
 struct PRIVATEVARIABLES{
